@@ -1,0 +1,75 @@
+/* Global Base Configuration */
+
+:root{
+
+    /* Project RAW Color Palette - Primitive Color */ 
+    --color-black: #000000;
+    --color-slate-blue: #44537a;
+    --color-gold: #ca9853;
+    --color-warm-white: #ede7df;
+
+    /* Semnatic System */
+    --bg-main-color: var(--color-black); 
+
+    /* Layout and Spacing */
+    --section-padding-y: clamp(4rem, 8vw, 8rem);
+    --section-padding-x: 8%;
+
+    /* Fluid Typography */
+    --text-main-color: var(--color-warm-white);
+    --text-inverse-color: var(--color-black);
+    /* 
+       clamp(minimum, preferred, maximum) 
+       vw(viewport width): dynamic variable
+    */
+
+    /* Font size */ 
+    --fs-h1: clamp(2.25rem, 6vw, 3.75rem);
+    --fs-h2: clamp(1.75rem, 4vw, 2.5rem);
+    --fs-h3: clamp(1.25rem, 2vw, 1.75rem);
+    --fs-body: 1rem;
+    --fs-button: 0.95rem;
+
+    /* Line Height */ 
+    --lh-body: 1.6;
+
+    /* Component Design: Cards */
+    --card-radius: 12px;
+    --card-padding: 2rem;
+
+    /* Component Design: Buttons */
+    --btn-padding: 0.75rem 1.5rem;
+    --btn-radius: 6px; 
+}
+
+/* Base Design */
+
+/* Global Reset: strip away default browser settinsg */
+*{
+    padding: 0;
+    margin: 0; 
+    box-sizing: border-box; /*forces the browser to include padding and borders inside the specified width*/
+}
+body{
+
+    background-color: var(--bg-main-color);
+    color: var(--text-main-color);
+}
+
+h1{
+    font-size: var(--fs-h1); 
+}
+
+h2{
+    font-size: var(--fs-h2);
+}
+
+h3{
+    font-size: var(--fs-h3); 
+}
+
+p{
+    color: var(--text-main-color);
+    font-size: var(--fs-body); 
+}
+
