@@ -1,4 +1,5 @@
 from pydantic import BaseModel,ConfigDict
+from datetime import datetime
 
 class ProjectResponse(BaseModel):
     id: int
@@ -6,13 +7,13 @@ class ProjectResponse(BaseModel):
     slug: str
     category: str
     role: str
-    summery: str
-    image_url: str
-    github_url: str
-    demo_url: str
+    summary: str
+    image_url: str | None
+    github_url: str | None
+    demo_url: str | None
     featured: bool
     display_order: int
-    created_at: int
+    created_at: datetime
 
     model_config = ConfigDict(from_attributes=True) #allows to build this schema from SQLAlchemy objects
 

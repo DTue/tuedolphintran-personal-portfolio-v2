@@ -15,10 +15,6 @@ from app.models.base import Base
 from datetime import datetime
 
 
-
-
-
-
 class Project(Base):
     __tablename__ = "projects"
 
