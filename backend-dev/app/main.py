@@ -1,10 +1,9 @@
 #Goal: Enpoints
 from fastapi import FastAPI  
 from sqlalchemy import select
-
-from app.database import get_session
-from app.models.projects import Project
-from app.schemas.projects import ProjectResponse
+from database import get_session
+from models.projects import Project
+from schemas.projects import ProjectResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 
@@ -27,18 +26,20 @@ def read_root() -> dict[str, str]:
 
 @app.get("/api/projects", response_model=list[ProjectResponse]) #defines path and automatically format to match schema
 def get_projects():
-    session = get_session()
+
+    my_session = get_session()
 
     try:
         statement = select(Project).order_by(Project.display_order)
-        projects = session.scalars(statement).all() 
+        projects = my_session.scalars(statement).all() 
 
         return projects
+    
     except Exception as error:
-        print(f"API/GET - Project failed: {error}")
+        print(f"API/GET - Projects failed: {error}")
         raise
     finally:
-        session.close()
+        my_session.close()
 
 
         

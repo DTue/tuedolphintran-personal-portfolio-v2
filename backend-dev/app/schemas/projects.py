@@ -2,7 +2,7 @@ from pydantic import BaseModel,ConfigDict
 from datetime import datetime
 
 class ProjectResponse(BaseModel):
-    id: int
+
     title: str
     slug: str
     category: str
